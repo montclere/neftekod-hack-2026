@@ -128,6 +128,12 @@
 
 <div align="center">
 
+<!-- ⚠️ БЕЙДЖИ НИЖЕ — ПРИМЕР под гипотетический RAG-кейс (postgres, pgvector,
+     RAG Pipeline, Semantic Dedup, Hugging Face). В проекте этого нет.
+     Замените на то, что реально запущено: бейдж — такое же обещание жюри,
+     как цифра. Технический эксперт спросит про каждый.
+     Актуальный состав стека — в корневом README и docs/adr/0002-stack.md. -->
+
 <!-- Ряд 1: инструменты. Иконки единообразные, поэтому фирменные бейджи здесь лишние. -->
 <img src="https://skillicons.dev/icons?i=python,fastapi,postgres,docker,nextjs,ts,react,tailwind,git,linux&theme=dark&perline=10" alt="Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript, React, Tailwind, Git, Linux" />
 
