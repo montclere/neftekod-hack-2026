@@ -1,0 +1,56 @@
+# ─── Секреты ───
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ─── Python ───
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ─── Node ───
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+.pnpm-store/
+
+# ─── Данные и модели ───
+# Маленький демо-датасет для сидов кладём в data/demo/ — он коммитится.
+data/*
+!data/demo/
+uploads/
+*.sqlite
+*.sqlite3
+*.db
+models/
+*.pt
+*.bin
+*.safetensors
+*.parquet
+.cache/
+
+# ─── Артефакты работы ───
+*.log
+logs/
+tmp/
+
+# ─── Агент ───
+# .claude/settings.json и скилы КОММИТИМ: иначе у участников разные агенты.
+# Личное остаётся личным:
+.claude/settings.local.json
+.claude/**/*.local.json
+
+# ─── ОС и редакторы ───
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
