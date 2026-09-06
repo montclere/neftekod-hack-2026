@@ -167,18 +167,26 @@
 
 ## Запуск
 
+<!-- ⚠️ СВЕРЬТЕ С РЕАЛЬНЫМ Makefile перед сдачей: `make help`.
+     Жюри выполняет эти команды. Команда из README, которой нет, —
+     это минус доверие ко всему остальному в файле. -->
+
 ```bash
 git clone URL && cd REPO
-cp .env.example .env
-make up
+make setup
 ```
 
-→ http://localhost:3000 · API: http://localhost:8000/docs
+Дальше две вкладки терминала:
 
-Нужен только Docker. Проверено на чистой машине.
+```bash
+make dev-api     # → http://localhost:8000/docs
+make dev-web     # → http://localhost:3000
+```
+
+Нужны Node 22+, pnpm и uv. Проверено на чистой машине.
 
 <details>
-<summary><b>Переменные окружения, команды, запуск без Docker</b></summary>
+<summary><b>Переменные окружения и остальные команды</b></summary>
 
 <br/>
 
@@ -188,17 +196,9 @@ make up
 | `VAR` | назначение | нет |
 
 ```bash
-make seed      # демо-данные
-make eval      # воспроизвести замер метрик
-make lint      # проверки
-make down      # остановить
-```
-
-Без Docker:
-
-```bash
-cd backend  && uv sync && uv run uvicorn app.main:app --reload
-cd frontend && pnpm i  && pnpm dev
+make types     # TS-типы из OpenAPI после правки схем
+make lint      # ruff + biome
+make check     # бэкенд отвечает?
 ```
 
 </details>

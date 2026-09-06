@@ -11,12 +11,16 @@
 
 ## Быстрый старт
 
-Нужно на машине: **Node 22+**, **pnpm 9+**, **uv**.
+Нужно на машине: **Node 22+**, **pnpm**, **uv**.
 
 ```bash
+node --version   # 22+
 pnpm --version   # нет: npm i -g pnpm
 uv --version     # нет: curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+Точную версию pnpm подтягивать не нужно: она закреплена полем `packageManager`
+в `frontend/package.json`, pnpm сам переключится на неё при первом запуске.
 
 Дальше:
 
