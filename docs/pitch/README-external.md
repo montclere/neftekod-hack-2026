@@ -1,11 +1,18 @@
 <!-- ═══════════════════════════════════════════════════════════════════
-     ЭТО ШАБЛОН ВИТРИННОГО README — лицевая страница для жюри.
+     ШАБЛОН ВИТРИННОГО README — лицевая страница для жюри.
+     ВАРИАНТ «ВНЕШНИЕ ГЕНЕРАТОРЫ»: шапка, бегущий питч и футер приезжают
+     с capsule-render и readme-typing-svg. Класть в репозиторий нечего,
+     но картинки живут на чужих серверах и требуют percent-encoding кириллицы.
+
+     Второй, равноправный вариант — README-svg.md (шапка и футер из локальных docs/design/*.svg).
+     Отличаются только шапкой и футером (и оттенками палитры под них);
+     разделы, тексты и структура идентичны. Выбор — вкусовой.
 
      Как пользоваться (фаза упаковки, 80–90% срока):
-       cp <этот файл> README.md
-     и дальше править уже в корне. Пути к картинкам (docs/design/*.svg,
-     docs/demo.gif) отсчитываются ОТ КОРНЯ репозитория — пока файл лежит
-     здесь, на GitHub картинки будут битыми. Это нормально.
+       cp docs/pitch/README-external.md README.md
+     и дальше править уже в корне. Пути к картинкам отсчитываются
+     ОТ КОРНЯ репозитория — пока файл лежит здесь, на GitHub
+     картинки будут битыми. Это нормально.
 
      Рабочий README, который читает команда, — тот, что сейчас в корне.
      ═══════════════════════════════════════════════════════════════════ -->
@@ -133,6 +140,12 @@
 
 <div align="center">
 
+<!-- ⚠️ БЕЙДЖИ НИЖЕ — ПРИМЕР под гипотетический RAG-кейс (postgres, pgvector,
+     RAG Pipeline, Semantic Dedup, Hugging Face). В проекте этого нет.
+     Замените на то, что реально запущено: бейдж — такое же обещание жюри,
+     как цифра. Технический эксперт спросит про каждый.
+     Актуальный состав стека — в корневом README и docs/adr/0002-stack.md. -->
+
 <!-- Ряд 1: инструменты. theme=light даёт светлые иконки на тёмном —
      под эту палитру подходит лучше, чем dark. -->
 <img src="https://skillicons.dev/icons?i=python,fastapi,postgres,docker,nextjs,ts,react,tailwind,git,linux&theme=dark&perline=10" alt="Python, FastAPI, PostgreSQL, Docker, Next.js, TypeScript, React, Tailwind, Git, Linux" />
@@ -166,18 +179,26 @@
 
 ## Запуск
 
+<!-- ⚠️ СВЕРЬТЕ С РЕАЛЬНЫМ Makefile перед сдачей: `make help`.
+     Жюри выполняет эти команды. Команда из README, которой нет, —
+     это минус доверие ко всему остальному в файле. -->
+
 ```bash
 git clone URL && cd REPO
-cp .env.example .env
-make up
+make setup
 ```
 
-→ http://localhost:3000 · API: http://localhost:8000/docs
+Дальше две вкладки терминала:
 
-Нужен только Docker. Проверено на чистой машине.
+```bash
+make dev-api     # → http://localhost:8000/docs
+make dev-web     # → http://localhost:3000
+```
+
+Нужны Node 22+, pnpm и uv. Проверено на чистой машине.
 
 <details>
-<summary><b>Переменные окружения, команды, запуск без Docker</b></summary>
+<summary><b>Переменные окружения и остальные команды</b></summary>
 
 <br/>
 
@@ -187,17 +208,9 @@ make up
 | `VAR` | назначение | нет |
 
 ```bash
-make seed      # демо-данные
-make eval      # воспроизвести замер метрик
-make lint      # проверки
-make down      # остановить
-```
-
-Без Docker:
-
-```bash
-cd backend  && uv sync && uv run uvicorn app.main:app --reload
-cd frontend && pnpm i  && pnpm dev
+make types     # TS-типы из OpenAPI после правки схем
+make lint      # ruff + biome
+make check     # бэкенд отвечает?
 ```
 
 </details>

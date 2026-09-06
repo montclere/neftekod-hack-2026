@@ -190,7 +190,9 @@ gh project create --owner <owner> --title "Хакатон"
 ## Упаковка
 
 - гифка демо в `docs/demo.gif`, схема архитектуры в `docs/architecture-dark.png`
-- витринный README: `cp docs/pitch/README-template.md README.md`, дальше править текст
+- витринный README: выбрать вариант в [`docs/pitch/`](pitch/) — `README-svg.md`
+  (шапка из локальных SVG) или `README-external.md` (с внешних генераторов),
+  скопировать в корень: `cp docs/pitch/README-svg.md README.md`, дальше править текст
 - текст в `docs/design/header.svg` и `footer.svg` правится обычными буквами,
   палитра — в блоке `<defs>` тех же файлов
 - слайды по [`docs/pitch/PITCH.md`](pitch/PITCH.md), фоны из `docs/design/`,
